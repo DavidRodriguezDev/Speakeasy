@@ -1,0 +1,447 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /*Variables para los colores de la página*/
+   --rojo : #b40c1f;   
+   --negro : black;
+   --fondo : rgb(255, 247, 247);
+   --gris : rgb(158, 156, 156);
+   --blanco : #fff;
+}
+
+body {
+    background-color: var(--blanco);
+    font-family: 'Roboto', sans-serif;
+    background-image: url(/fotosProyecto/estatua.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/*Centrado de elementos de la cabecera (título e icono)*/
+
+.cabecera {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--rojo);
+    border: 1px solid var(--negro);
+}
+
+.titulo {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+}
+
+h1{
+    width: 250px;
+    text-align: center;
+    color: var(--blanco);
+    text-shadow: 1px 1px 1px var(--negro);
+    padding-left: 20px;
+}
+
+#hamburguer {
+    display: flex;
+    justify-content: center;
+}
+
+/*Activación y características del Menú*/
+
+nav {
+    display: none;
+}
+
+.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 20vh);
+    background-image: url(/fotosProyecto/empireState.jpg);
+    background-position: center;
+    background-size: cover;
+    z-index: 1;
+}
+
+nav.navegador ul li {
+    list-style: none;
+    margin: 60px;
+    text-align: center;
+}
+
+nav.navegador ul li a {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--rojo);
+    text-shadow: 1px 1px 1px var(--negro);
+}
+
+nav.navegador ul li a:hover {
+    letter-spacing: 2px;
+    text-decoration: underline;
+    transition: all .5s;
+}
+
+/*------MAIN------*/
+
+/*------HERO------*/
+
+.hero {
+    height: calc( 100vh - 20vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-image: url(/fotosProyecto/bgUno.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.gin {
+    background-image: url(/fotosProyecto/gin.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;   
+}
+
+.ron {
+    background-image: url(/fotosProyecto/ron.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.tequila {
+    background-image: url(/fotosProyecto/tequila.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.vodka {
+    background-image: url(/fotosProyecto/vodka.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.whisky {
+    background-image: url(/fotosProyecto/whisky.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.recetas {
+    background-image: url(/fotosProyecto/barra.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero-texto {
+    background-color: rgba(255, 255, 255, .1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 20px;
+    color: var(--blanco);
+    text-shadow: 1px 1px 1px var(--negro);
+    text-align: center;
+}
+
+h2.eslogan {
+    font-weight: 700;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    line-height: 3rem;    
+}
+
+p.introduccion {
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 1.2rem; 
+}
+
+/*------ARTÍCULO Y SECCIONES------*/
+
+article section{
+    width: 70%;
+    margin: 40px auto;
+}
+
+section h2 {
+    color: var(--rojo);
+    letter-spacing: 2.5px;
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+    text-shadow: 1px 1px 1px var(--negro);
+}
+
+section h3 {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 20px;
+    line-height: 1.9rem;
+}
+
+section p {
+    font-weight: 400;
+    font-size: 1.4rem;
+    margin-top: 10px;
+    line-height: 1.7rem;
+}
+
+.destacado {
+    color: var(--rojo);
+}
+
+/*------IMÁGENES------*/
+
+.imagen {
+    height: 200px;
+    width: 100%;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.imagen.uno {
+    background-image: url(/fotosProyecto/18.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.imagen.dos {
+    background-image: url(/fotosProyecto/inicio.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.imagen.tres {
+    background-image: url(/fotosProyecto/alCapone.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+.imagen.cuatro {
+    background-image: url(/fotosProyecto/fin.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/*------FLECHA------*/
+
+.flecha {
+    width: 40px;
+    height: 40px;
+    background-color: var(--gris);
+    border-radius: 50%;
+    position: fixed;
+    top: 50vh;
+    right: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .8;
+}
+
+.flecha a  {
+    font-size: 1.6rem;
+    color: var(--rojo);
+}
+
+.aparecer {
+    display: block;
+}
+
+.desaparecer {
+    display: none;
+}
+
+/*------FOOTER------*/
+
+footer {
+    padding: 30px 5px;
+    background-color: var(--rojo); 
+    border-top: 1px solid var(--negro);
+}
+
+footer p {
+    text-decoration: none;
+    color: var(--blanco);
+    text-transform: uppercase;
+    line-height: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+footer a {
+    color: var(--blanco);
+    cursor: pointer;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px var(--negro);
+}
+
+footer a:hover {
+    text-shadow: 2px 1px 1px var(--negro);
+    color: var(--gris);
+}
+
+.rrss {
+    display: flex;
+    justify-content: center;
+}
+
+.rrss a {
+    font-size: 1.5rem;
+    margin: 15px;
+}
+
+
+/*-------MODAL DE CONFIRMACIÓN DE EDAD-------*/
+
+.modal-edad {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url(/fotosProyecto/estatua.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--negro);
+    z-index: 3;
+}
+
+.modal-edad h2 {
+    margin: 0 30px;
+    text-transform: uppercase;
+    line-height: 2rem;
+    font-weight: 700;
+    color: var(--rojo);
+    text-shadow: 1px 1px 1px var(--negro);
+}
+
+.modal-edad h3 {
+    margin-top: 5px;
+}
+
+.modal-edad .botones {
+    margin: 30px;
+}
+
+.explicacion {
+    margin: 0 30px;
+    font-weight: 500;
+    line-height: 1.2rem;
+}
+
+.botones button {
+    width: 60px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid var(--negro);
+}
+
+.btn-no {
+    text-decoration: none;
+}
+
+.botones button:hover {
+    cursor: pointer;
+    background-color: var(--gris);
+    border: 2px solid var(--rojo);
+    transition: all .1s ease-in;
+}
+
+.cerrar-modal {
+    display: none;
+} 
+
+
+/*------MEDIA QUERIES------*/
+
+@media screen and (min-width:720px) {    
+
+    .hero .eslogan {
+        font-weight: 700;
+        font-size: 3rem;
+    }
+
+    .hero .introduccion {
+        font-weight: 500;
+        line-height: 1.5rem;
+    }
+
+    .historia section {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    
+    article#historia section {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    article#historia section .texto {
+        width: 70%;
+    }
+    
+    article#historia section .imagen {
+        width: 30%;
+        margin-left: 30px;
+    }
+
+    article section {
+        width: 40%;
+    }
+
+    section h2 {
+        margin-top: 60px;
+    }
+
+    .flecha {
+        right: 60px;
+    }
+
+    .flecha a  {
+        font-size: 2rem;
+        color: var(--rojo);
+    }
+
+    .flecha:hover {
+        font-size: 1.5em;
+        color: var(--blanco);
+        background-color: rgba(85, 83, 83, 0.1);
+        transition: all .4s;
+    }
+
+    .hero-texto {
+        padding: 40px 90px;
+    }
+}

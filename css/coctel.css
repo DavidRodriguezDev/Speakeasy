@@ -1,0 +1,138 @@
+
+/*--------PÁGINA RECETAS---------*/
+
+.cocteles {
+    min-height: 100vh;
+    margin-bottom: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url(/fotosProyecto/estatua.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.cocteles p {
+    margin: 10px 25px;
+    font-size: 1.3rem;
+    font-size: 700;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+p.intro-coctel {
+    margin-top: 50px;
+    line-height: 1.6rem;
+}
+
+.buscador {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 50px auto;
+}
+
+.search-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buscador select {
+    margin: 30px auto;
+    width: 200px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid var(--rojo);;
+    background-color: transparent;
+}
+
+.buscador select:focus {
+    outline: none;
+}
+
+.buscador input {
+    margin: 30px auto;
+    width: 200px;
+    height: 30px;
+    padding: .5rem 1rem;
+    border: none;
+    border-bottom: 2px solid var(--rojo);
+    background-color: transparent;
+}
+
+.buscador input:focus {
+    outline: none;
+}
+
+.buscador button {
+    font-size: 1.4rem;
+    border: none;
+    background-color: transparent;
+    margin-top: 10px;
+}
+
+/*------------CARTAS CÓCTELES------------*/
+
+.cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.container-card {
+    width: 300px;
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgb(79,22,22);
+    background: -moz-linear-gradient(180deg, rgba(79,22,22,1) 0%, rgba(180,12,31,1) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(79,22,22,1) 0%, rgba(180,12,31,1) 100%);
+    background: linear-gradient(180deg, rgba(79,22,22,1) 0%, rgba(180,12,31,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4f1616",endColorstr="#b40c1f",GradientType=1);
+    color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px black;
+}
+
+.container-card h2 {
+    margin: 30px auto;
+    font-size: 2rem;
+}
+
+.container-card h3 {
+    margin-bottom: 10px;
+}
+
+.container-card ul {
+    list-style: none;
+}
+
+.container-card ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.informacion-coctel {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.informacion-coctel p {
+    font-size: .8rem;
+}
+
+.hide {
+    display: none;
+}
+
+
+/*-------MEDIA QUERIES-------*/

@@ -89,7 +89,7 @@ const listadoCocteles = [
     {
         nombre : "Cuba Libre",       //------CUBA LIBRE-----
         id : "5",
-        principal : "Rum",
+        principal : "Ron",
         ingredientes : {
             ing1 : "Light Rum",
             ing2 : "Fresh Lime Juice",
@@ -314,7 +314,7 @@ const listadoCocteles = [
     {
         nombre : "Daiquiri",       //------DAIQUIRI COCKTAIL-----
         id : "14",
-        principal : "Rum",
+        principal : "Ron",
         ingredientes : {
             ing1 : "Light Rum",
             ing2 : "Fresh Lime Juice",
@@ -360,7 +360,7 @@ const listadoCocteles = [
         decoracion : "1 Raspberry"
     },
     {
-        nombre : "Lynchburg Lemonade",       //------LYNCHBURG LEMONADE COCKTAIL-----
+        nombre : "Lynchburg L.",       //------LYNCHBURG LEMONADE COCKTAIL-----
         id : "16",
         principal : "Whisky",
         ingredientes : {
@@ -659,7 +659,7 @@ const listadoCocteles = [
     {
         nombre : "Mojito",       //------MOJITO COCKTAIL-----
         id : "27",
-        principal : "Rum",
+        principal : "Ron",
         ingredientes : {
             ing1 : "Light Rum",
             ing2 : "Lime Wedges",
@@ -818,7 +818,7 @@ const listadoCocteles = [
     {
         nombre : "Dark and Stormy",       //------DARK AND STORMY COCKTAIL-----
         id : "33",
-        principal : "Rum",
+        principal : "Ron",
         ingredientes : {
             ing1 : "Fresh Lime Juice",
             ing2 : "Ginger Beer",
@@ -842,7 +842,7 @@ const listadoCocteles = [
     {
         nombre : "Hemingway Daiquiri",       //------HEMINGWAY DAIQUIRI COCKTAIL-----
         id : "34",
-        principal : "Rum",
+        principal : "Ron",
         ingredientes : {
             ing1 : "Light Rum",
             ing2 : "Maraschino",
@@ -1059,7 +1059,7 @@ const listadoCocteles = [
         decoracion : "None"
     },
     {
-        nombre : "Classic Champagne Cocktail",       //------CLASSIC CHAMPAGNE COCKTAIL-----
+        nombre : "Class Champagne",       //------CLASSIC CHAMPAGNE COCKTAIL-----
         id : "43",
         principal : "Otros",
         ingredientes : {
@@ -1208,7 +1208,7 @@ const listadoCocteles = [
     {
         nombre : "Mai Tai",       //------MAI TAI COCKTAIL-----
         id : "49",
-        principal : "Rum",
+        principal : "Ron",
         ingredientes : {
             ing1 : "Dark Rum",
             ing2 : "Cointreau",
@@ -1261,191 +1261,265 @@ const listadoCocteles = [
     },
 ]
 
-//----------------------------------FILTRADO POR TIPO DE DESTILADO-----------------------------------//
+const form = document.querySelector(".buscador");
+const search = document.getElementById("search");
+const input = document.getElementById("input");
+const dropdown = document.getElementById("dropdown");
+const cards = document.querySelector(".cards");
+const coctel = listadoCocteles.nombre;
+const limpiar = document.querySelector(".limpiar");
 
-//------- FILTRADO CÓCTELES DE GIN
 
-const filtradoGin = listadoCocteles.filter(function(coctel){
-    return coctel.principal === "Gin";
+/*---Filtrado de cócteles en función del valor introducido en el input---*/
+
+
+form.addEventListener("submit", e => {
+    
+    e.preventDefault();
+    
+    if(input.value.length == 0) {
+        alert("Por favor, introduce un destilado");
+    }
+    else if(input.value.toLowerCase() == "gin") {
+        const filtradoGin = listadoCocteles.filter(function(coctel){
+            return coctel.principal === "Gin";
+        })
+
+        filtradoGin.forEach(item => createCoctelCard(item));
+
+    }
+    else if(input.value.toLowerCase() == "ron") {
+        const filtradoRon = listadoCocteles.filter(function(coctel){
+            return coctel.principal === "Ron";
+        })
+
+        filtradoRon.forEach(item => createCoctelCard(item));
+    }
+     else if(input.value.toLowerCase() == "tequila") {
+        const filtradoTequila = listadoCocteles.filter(function(coctel){
+            return coctel.principal === "Tequila";
+        })
+
+        filtradoTequila.forEach(item => createCoctelCard(item));
+    }
+     else if(input.value.toLowerCase() == "vodka") {
+        const filtradoVodka = listadoCocteles.filter(function(coctel){
+            return coctel.principal === "Vodka";
+        })
+
+        filtradoVodka.forEach(item => createCoctelCard(item));
+    }
+     else if(input.value.toLowerCase() == "whisky") {
+        const filtradoWhisky = listadoCocteles.filter(function(coctel){
+            return coctel.principal === "Whisky";
+        })
+
+        filtradoWhisky.forEach(item => createCoctelCard(item));
+    }
+     else if(input.value.toLowerCase() == "otros") {
+        const filtradoOtros = listadoCocteles.filter(function(coctel){
+            return coctel.principal === "Otros";
+        })
+
+        filtradoOtros.forEach(item => createCoctelCard(item));
+    }
+    else {
+        alert("Por favor, introduce una de estas opciones válidas: Gin, Ron, Tequila, Vodka, Whisky u Otros.")
+    }
+    
 })
 
-console.log(filtradoGin);
+/*---Filtrado de cócteles en función del valor seleccionado en el dropdown---*/
 
-//------- FILTRADO CÓCTELES DE TEQUILA
+dropdown.addEventListener("change", e => {
+    
 
-const filtradoTequila = listadoCocteles.filter(function(coctel){
-    return coctel.principal === "Tequila";
+    if(dropdown.value == 1) {
+        
+        const filtradoBuild = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO BUILD
+            return coctel.metodo === "Build";
+        })
+        const filtradoBuildASink = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO BUILD AND SINK
+            return coctel.metodo === "Build and Sink";
+        })
+        
+        const filtradoBuildAFloat = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO BUILD AND FLOAT
+            return coctel.metodo === "Build and Float";
+        })
+        
+        const filtradoBuildChurnAFloat = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO BUILD, CHURN AND FLOAT
+            return coctel.metodo === "Build, Churn and Float";
+        })
+        
+        const filtradoMBBC = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO MUDDLE, BASH, BUILD AND CHURN
+            return coctel.metodo === "Muddle, Bash, Build and Churn";
+        })
+        
+        const filtradoSMBBC = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO SOAK, MUDDLE, BASH, BUILD AND CHURN
+            return coctel.metodo === "Soak, Muddle, Bash, Build and Churn";
+        })
+        
+        const filtradoBuildAStirGently = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO BUILD AND STIR GENTLY
+            return coctel.metodo === "Build and Stir Gently";
+        })
+
+        const filtradoBuildAStir = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO BUILD AND STIR 
+            return coctel.metodo === "Build and Stir";
+        })
+        
+        const filtradoRollOrBuildAStir = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO ROLL OR BUILD AND STIR
+            return coctel.metodo === "Roll or Build and Stir";
+        })
+        
+        const filtradoSoakABuild = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO SOAK AND BUILD
+            return coctel.metodo === "Soak and Build";
+        })
+        
+        const filtradoMuddleBuildAChurn = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO MUDDLE, BUILD AND CHURN
+            return coctel.metodo === "Muddle, Build and Churn";
+        })
+
+
+        for(let i=0; i< filtradoBuild.length; i++){
+            createCoctelCard(filtradoBuild[i]);
+        }
+        for(let i=0; i< filtradoBuildASink.length; i++){
+            createCoctelCard(filtradoBuildASink[i]);
+        }
+        for(let i=0; i< filtradoBuildAFloat.length; i++){
+            createCoctelCard(filtradoBuildAFloat[i]);
+        }
+        for(let i=0; i< filtradoBuildChurnAFloat.length; i++){
+            createCoctelCard(filtradoBuildChurnAFloat[i]);
+        }
+        for(let i=0; i< filtradoMBBC.length; i++){
+            createCoctelCard(filtradoMBBC[i]);
+        }
+        for(let i=0; i< filtradoSMBBC.length; i++){
+            createCoctelCard(filtradoSMBBC[i]);
+        }
+        for(let i=0; i< filtradoBuildAStir.length; i++){
+            createCoctelCard(filtradoBuildAStir[i]);
+        }
+        for(let i=0; i< filtradoBuildAStirGently.length; i++){
+            createCoctelCard(filtradoBuildAStirGently[i]);
+        }
+        for(let i=0; i< filtradoRollOrBuildAStir.length; i++){
+            createCoctelCard(filtradoRollOrBuildAStir[i]);
+        }
+        for(let i=0; i< filtradoSoakABuild.length; i++){
+            createCoctelCard(filtradoSoakABuild[i]);
+        }
+        for(let i=0; i< filtradoMuddleBuildAChurn.length; i++){
+            createCoctelCard(filtradoMuddleBuildAChurn[i]);
+        }
+       
+    }
+    else if(dropdown.value == 2) {
+        
+        const filtradoShakeAStrain = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO SHAKE AND STRAIN
+            return coctel.metodo === "Shake and Strain";
+        })
+        const filtradoShakeAFineStrain = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO SHAKE AND FINE STRAIN
+            return coctel.metodo === "Shake and Fine Strain";
+        })
+        
+        const filtradoDryShakeShakeAStrain = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO DRY SHAKE, SHAKE AND STRAIN
+            return coctel.metodo === "Dry Shake, Shake and Strain";
+        })
+        
+        const filtradoShakeStrainAFloat = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO SHAKE, STRAIN AND FLOAT
+            return coctel.metodo === "Shake, Strain and Float";
+        })
+
+
+        for(let i=0; i< filtradoShakeAStrain.length; i++){
+            createCoctelCard(filtradoShakeAStrain[i]);
+        }
+        for(let i=0; i< filtradoShakeAFineStrain.length; i++){
+            createCoctelCard(filtradoShakeAFineStrain[i]);
+        }
+        for(let i=0; i< filtradoDryShakeShakeAStrain.length; i++){
+            createCoctelCard(filtradoDryShakeShakeAStrain[i]);
+        }
+        for(let i=0; i< filtradoShakeStrainAFloat.length; i++){
+            createCoctelCard(filtradoShakeStrainAFloat[i]);
+        }
+
+    }
+     else if(dropdown.value == 3) {
+        const filtradoStirAndJS = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO STIR AND JULEP STRAIN
+            return coctel.metodo === "Stir and Julep Strain";
+        })
+
+        for(let i=0; i< filtradoStirAndJS.length; i++){
+            createCoctelCard(filtradoStirAndJS[i]);
+        }
+    }
+     else if(dropdown.value == 4) {
+        const filtradoLayerInOrder = listadoCocteles.filter(function(coctel){  //-------- FILTRADO MÉTODO LAYER IN ORDER
+            return coctel.metodo === "Layer in Order";
+        })
+    
+
+        for(let i=0; i< filtradoLayerInOrder.length; i++){
+            
+            createCoctelCard(filtradoLayerInOrder[i]);
+        }   
+    }
 })
 
-console.log(filtradoTequila);
+/*----------CREACIÓN DE LAS CARTAS DE LOS CÓCTELES----------*/
 
-//------- FILTRADO CÓCTELES DE RON
+function createCoctelCard(coctel) {
+    const cardHTML =`
+    <div class="container-card">
+        <h2 class="nombre">${coctel.nombre}</h2>
+        <h3>Ingredientes</h3>   
+        <ul class="ingredientes">
+            <li>
+                <span class="cantidad">${coctel.medidasCl.med1}</span>
+                <span class="ingrediente">${coctel.ingredientes.ing1}</span>
+            </li>
+            <li>
+                <span class="cantidad">${coctel.medidasCl.med2}</span>
+                <span class="ingrediente">${coctel.ingredientes.ing2}</span>
+            </li>
+            <li>
+                <span class="cantidad">${coctel.medidasCl.med3}</span>
+                <span class="ingrediente">${coctel.ingredientes.ing3}</span>
+            </li>
+            <li>
+                <span class="cantidad">${coctel.medidasCl.med4}</span>
+                <span class="ingrediente4">${coctel.ingredientes.ing4}</span>
+            </li>
+            <li>
+                <span class="cantidad">${coctel.medidasCl.med5}</span>
+                <span class="ingrediente5">${coctel.ingredientes.ing5}</span>
+            </li>
+        </ul>
+        <div class="informacion-coctel">
+            <h3>Método de preparación</h3> 
+            <p>${coctel.metodo}</p>
+            <h3>Tipo de vaso</h3> 
+            <p>${coctel.tipoDeVaso}</p>
+            <h3>Tipo de hielo</h3> 
+            <p>${coctel.tipoDeHielo}</p>
+            <h3>Decoración</h3> 
+            <p>${coctel.decoracion}</p>
+        </div>
+    </div>
+    
+    `
+    cards.innerHTML += cardHTML;
 
-const filtradoRon = listadoCocteles.filter(function(coctel){
-    return coctel.principal === "Rum";
+}
+
+/*-------BOTÓN DE LA PAPELERA PARA BORRAR CONTENIDO DE LAS CARDS*/ 
+
+limpiar.addEventListener("click", e=> {
+    e.preventDefault();
+
+    cards.innerHTML = "";
+    input.value = "";
 })
-
-console.log(filtradoRon);
-
-//------- FILTRADO CÓCTELES DE WHISKY
-
-const filtradoWhisky = listadoCocteles.filter(function(coctel){
-    return coctel.principal === "Whisky";
-})
-
-console.log(filtradoWhisky);
-
-//------- FILTRADO CÓCTELES DE BOURBON
-
-const filtradoBourbon = listadoCocteles.filter(function(coctel){
-    return coctel.principal === "Bourbon";
-})
-
-console.log(filtradoBourbon);
-
-//------- FILTRADO CÓCTELES DE OTROS
-
-const filtradoOtros = listadoCocteles.filter(function(coctel){
-    return coctel.principal === "Otros";
-})
-
-console.log(filtradoOtros);
-
-//------- FILTRADO CÓCTELES DE VODKA
-
-const filtradoVodka = listadoCocteles.filter(function(coctel){
-    return coctel.principal === "Vodka";
-})
-
-console.log(filtradoVodka);
-
-
-//----------------------------------FILTRADO POR MÉTODO DE ELEABORACIÓN-----------------------------------//
-
-//-------- FILTRADO MÉTODO BUILD
-
-const filtradoBuild = listadoCocteles.filter(function(coctel){
-    return coctel.metodo === "Build";
-})
-
-console.log(filtradoBuild);
-
-//-------- FILTRADO MÉTODO STIR AND JULEP STRAIN
-
-const filtradoStirAndJS = listadoCocteles.filter(function(coctel){
-    return coctel.metodo === "Stir and Julep Strain";
-})
-
-console.log(filtradoStirAndJS);
-
-//-------- FILTRADO MÉTODO BUILD AND SINK
-
-const filtradoBuildASink = listadoCocteles.filter(function(coctel){
-    return coctel.metodo === "Build and Sink";
-})
-
-console.log(filtradoBuildASink);
-
-//-------- FILTRADO MÉTODO BUILD AND FLOAT
-
-const filtradoBuildAFloat = listadoCocteles.filter(function(coctel){
-    return coctel.metodo === "Build and Float";
-})
-
-console.log(filtradoBuildAFloat);
-
-//-------- FILTRADO MÉTODO SHAKE AND STRAIN
-
-const filtradoShakeAStrain = listadoCocteles.filter(function(coctel){
-    return coctel.metodo === "Shake and Strain";
-})
-
-console.log(filtradoShakeAStrain);
-
-//-------- FILTRADO MÉTODO SHAKE AND FINE STRAIN
-
-const filtradoShakeAFineStrain = listadoCocteles.filter(function(coctel){
-    return coctel.metodo === "Shake and Fine Strain";
-})
-
-console.log(filtradoShakeAFineStrain);
-
-//-------- FILTRADO MÉTODO DRY SHAKE, SHAKE AND STRAIN
-
-const filtradoDryShakeShakeAStrain = listadoCocteles.filter(function(coctel){
-    return coctel.metodo === "Dry Shake, Shake and Strain";
-})
-
-console.log(filtradoDryShakeShakeAStrain);
-
-//-------- FILTRADO MÉTODO BUILD, CHURN AND FLOAT
-
-const filtradoBuildChurnAFloat = listadoCocteles.filter(function(coctel){
-    return coctel.metodo === "Build, Churn and Float";
-})
-
-console.log(filtradoBuildChurnAFloat);
-
-//-------- FILTRADO MÉTODO MUDDLE, BASH, BUILD AND CHURN
-
-const filtradoMBBC = listadoCocteles.filter(function(coctel){
-    return coctel.metodo === "Muddle, Bash, Build and Churn";
-})
-
-console.log(filtradoMBBC);
-
-//-------- FILTRADO MÉTODO SOAK, MUDDLE, BASH, BUILD AND CHURN
-
-const filtradoSMBBC = listadoCocteles.filter(function(coctel){
-    return coctel.metodo === "Soak, Muddle, Bash, Build and Churn";
-})
-
-console.log(filtradoSMBBC);
-
-//-------- FILTRADO MÉTODO BUILD AND STIR GENTLY
-
-const filtradoBuildAStirGently = listadoCocteles.filter(function(coctel){
-    return coctel.metodo === "Build and Stir Gently";
-})
-
-console.log(filtradoBuildAStirGently);
-
-//-------- FILTRADO MÉTODO ROLL OR BIULD AND STIR
-
-const filtradoRollOrBuildAStir = listadoCocteles.filter(function(coctel){
-    return coctel.metodo === "Roll or Build and Stir";
-})
-
-console.log(filtradoRollOrBuildAStir);
-
-//-------- FILTRADO MÉTODO SOAK AND BUILD
-
-const filtradoSoakABuild = listadoCocteles.filter(function(coctel){
-    return coctel.metodo === "Soak and Build";
-})
-
-console.log(filtradoSoakABuild);
-
-//-------- FILTRADO MÉTODO MUDDLE, BUILD AND CHURN
-
-const filtradoMuddleBuildAChurn = listadoCocteles.filter(function(coctel){
-    return coctel.metodo === "Muddle, Build and Churn";
-})
-
-console.log(filtradoMuddleBuildAChurn);
-
-//-------- FILTRADO MÉTODO LAYER IN ORDER
-
-const filtradoLayerInOrder = listadoCocteles.filter(function(coctel){
-    return coctel.metodo === "Layer in Order";
-})
-
-console.log(filtradoLayerInOrder);
-
-//-------- FILTRADO MÉTODO SHAKE, STRAIN AND FLOAT
-
-const filtradoShakeStrainAFloat = listadoCocteles.filter(function(coctel){
-    return coctel.metodo === "Shake, Strain and Float";
-})
-
-console.log(filtradoShakeStrainAFloat);
